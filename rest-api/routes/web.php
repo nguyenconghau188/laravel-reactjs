@@ -16,3 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => 'admin'], function () {
+    // echo 'admin';
+    Route::any('{all?}', function() {
+        return view('admin.index');
+    })->where('all', '.*');
+});
+
+// Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
