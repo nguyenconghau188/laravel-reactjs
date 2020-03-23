@@ -7,10 +7,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Laravel</title>
-        <link href="{{asset('backend/css/app.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{asset('client/css/app.css')}}" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <div id="root"></div>
-        <script src="{{asset('backend/js/app.js')}}" ></script>
+        <div id="example"></div>
+        <script src="{{asset('client/js/app.js')}}" ></script>
     </body>
 </html>
