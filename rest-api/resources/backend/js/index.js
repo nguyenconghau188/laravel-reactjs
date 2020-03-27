@@ -1,24 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Main from './main';
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
-// import appReducers from './reducers/index';
 import { Provider } from 'react-redux';
-
-const appReducers = () => {
-    return 'Hau';
-  }
+// import TodoApp from './containers/TodoApp';
+import rootReducers from './reducers/rootReducers';
+import AdminManagerApp from "./containers/AdminManagerApp";
 
 const store = createStore(
-    appReducers,
+    rootReducers,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 ReactDOM.render(
     <Provider store={store}>
-        <Main />
+        {/* <TodoApp /> */}
+        <AdminManagerApp />
     </Provider>,
+    
     document.getElementById('root')
 );
 

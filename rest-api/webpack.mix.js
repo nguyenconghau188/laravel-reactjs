@@ -13,5 +13,6 @@ const mix = require('laravel-mix');
 
 mix.react('resources/backend/js/app.js', 'public/backend/js')
    .sass('resources/backend/sass/app.scss', 'public/backend/css')
+   .copyDirectory('resources/backend/js/resources', 'public/backend/resources')
    .react('resources/client/js/app.js', 'public/client/js')
    .sass('resources/client/sass/app.scss', 'public/client/css');
