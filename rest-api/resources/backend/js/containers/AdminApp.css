@@ -1,0 +1,19 @@
+.site-layout-background {
+  background: #fff;
+}
+
+.header-fixed {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  background: #1468ad;
+  /* display: inline-flex; */
+}
+
+.layout-main {
+  margin-top: 60px;
+}
+
+.menu-header {
+  background: #1468ad;
+}

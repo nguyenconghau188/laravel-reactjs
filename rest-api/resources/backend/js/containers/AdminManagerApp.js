@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import SideBar from '../components/Layout/SideBar';
-import MainLayout from '../components/Layout/MainLayout';
+import MainLayout from './Layout/MainLayout';
 
 const AdminManagerApp = () => {
 

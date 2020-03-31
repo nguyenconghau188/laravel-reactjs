@@ -11,7 +11,7 @@ class MainLayout extends Component {
     return (
       <Layout>
         <Headers />
-        <Layout style={{ minHeight: '100vh' }} >
+        <Layout style={{ marginTop: '64px'}}>
           <SideBar />
           <Contents />
         </Layout>

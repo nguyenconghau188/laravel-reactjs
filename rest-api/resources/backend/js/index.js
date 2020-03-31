@@ -5,7 +5,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 // import TodoApp from './containers/TodoApp';
 import rootReducers from './reducers/rootReducers';
-import AdminManagerApp from "./containers/AdminManagerApp";
+import AdminApp from "./containers/AdminApp";
 
 const store = createStore(
     rootReducers,
@@ -15,7 +15,7 @@ const store = createStore(
 ReactDOM.render(
     <Provider store={store}>
         {/* <TodoApp /> */}
-        <AdminManagerApp />
+        <AdminApp />
     </Provider>,
     
     document.getElementById('root')

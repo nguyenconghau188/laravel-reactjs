@@ -10,6 +10,8 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 
+import {MENU_COLLAPSED, MENU_UNCOLLAPSED} from '../../constants/MenuTypes';
+
 const { SubMenu } = Menu;
 const { Sider } = Layout;
 
@@ -17,24 +19,35 @@ class SideBar extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state={
-      collapsed: false,
-    }
+
     autoBind(this);
   }
 
-  onCollapse = () => {
-    this.setState(prevstate =>( {
-      collapsed: !prevstate.collapsed
-    }));
+  onCollapse = (collapsedMenu) => {
+    console.log('onCollapse')
+    let collapsed = MENU_UNCOLLAPSED;
+    if (collapsedMenu === false) {
+      collapsed = MENU_COLLAPSED;
+    }
+    this.props.menuActions.collapsedSider(collapsed);
   }
 
   render() {
+    const { menus, menuActions } = this.props;
+    const collapsedMenu = menus.type === MENU_COLLAPSED ? false : true;
+    console.log(collapsedMenu)
+
     return (
       <Sider theme="light" 
-        collapsible collapsed={this.state.collapsed} 
+        collapsible collapsed={collapsedMenu} 
         onCollapse={this.onCollapse} 
         className='site-layout-background'
+        style={{
+          overflow: 'auto',
+          height: '100vh',
+          position: 'fixed',
+          left: 0,
+        }}
       >
         <Menu theme="light" defaultSelectedKeys={['1']} mode="inline">
           <Menu.Item key="1">

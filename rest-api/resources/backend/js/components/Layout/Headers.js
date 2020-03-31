@@ -8,12 +8,12 @@ const {Header} = Layout;
 class Headers extends Component {
   render() {
     return (
-      <Header className="header-bar">
+      <Header className="header-bar" style={{ position: 'fixed', zIndex: 1, width: '100%' }} >
         <Menu
           mode="horizontal"
           defaultSelectedKeys={['1']}
           style={{
-            background: '#2b489a',
+            background: '#1497cc',
             marginLeft: '200px'
           }}
         >
