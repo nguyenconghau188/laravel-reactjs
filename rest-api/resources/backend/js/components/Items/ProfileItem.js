@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Menu, Dropdown, Avatar} from 'antd';
-import { DownOutlined, UserOutlined, SettingOutlined, LogoutOutlined } from '@ant-design/icons';
+import { UserOutlined, SettingOutlined, LogoutOutlined } from '@ant-design/icons';
 
 const menu = (
   <Menu>
@@ -28,8 +28,8 @@ const showAvatar = (avatarUrl) => {
 const ProfileItem = (props) => {
   return (
     <Dropdown overlay={menu}>
-      <span className='headers-profileItem'>
-        <a src='#' style={{padding: '10px'}}>{props.name}</a>
+      <span className='headers-profileItem' >
+        <a src='#' style={{padding: '10px', color: 'white' }}>{props.name}</a>
         {showAvatar(props.avatarUrl)}
       </span>
     </Dropdown>

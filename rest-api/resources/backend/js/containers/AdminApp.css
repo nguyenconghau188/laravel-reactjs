@@ -7,13 +7,23 @@
   width: 100%;
   z-index: 1;
   background: #1468ad;
-  /* display: inline-flex; */
+  display: inline-flex;
+  height: 80px;
+  padding: 0;
 }
 
 .layout-main {
-  margin-top: 60px;
+  margin-top: 80px;
 }
 
 .menu-header {
   background: #1468ad;
 }
+
+#right-headers-group {
+  margin-left: auto;
+  margin-right: 20px;
+  float: right;
+}
+
+

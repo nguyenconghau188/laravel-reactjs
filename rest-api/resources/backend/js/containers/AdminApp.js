@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './AdminApp.css';
 
 import IconItem from '../components/Items/IconItem';
+import ProfileItem from '../components/Items/ProfileItem';
 
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
@@ -15,14 +16,27 @@ class AdminApp extends Component {
       <Layout>
         <Header className="header header-fixed" >
           <IconItem />
-          <Menu className='menu-header' theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
+
+          
+          <Menu 
+            className='menu-header' theme="dark" mode="horizontal" >
             <Menu.Item key="1">nav 1</Menu.Item>
             <Menu.Item key="2">nav 2</Menu.Item>
             <Menu.Item key="3">nav 3</Menu.Item>
           </Menu>
+
+          <div id='right-headers-group'>
+            <ProfileItem name={'Hau Nguyen'} avatarUrl={'./backend/resources/avatars/avatar.png'} />
+          </div>
         </Header>
         <Layout className='layout-main'>
-          <Sider width={200} className="site-layout-background">
+          <Sider width={200} className="site-layout-background"
+            style={{
+              overflow: 'auto',
+              height: '100vh',
+              position: 'fixed',
+              left: 0,
+            }} >
             <Menu
               mode="inline"
               defaultSelectedKeys={['1']}
@@ -73,13 +87,13 @@ class AdminApp extends Component {
               </SubMenu>
             </Menu>
           </Sider>
-          <Layout style={{ padding: '0 24px 24px' }}>
+          <Layout style={{ padding: '0 24px 24px', marginLeft: '200px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
               <Breadcrumb.Item>Home</Breadcrumb.Item>
               <Breadcrumb.Item>List</Breadcrumb.Item>
               <Breadcrumb.Item>App</Breadcrumb.Item>
             </Breadcrumb>
-            <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
+            <Content style={{ overflow: 'initial' }}>
               <div className="site-layout-background" style={{ padding: 24, textAlign: 'center' }}>
                 ...
                 <br />
