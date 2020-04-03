@@ -9,11 +9,11 @@ const IconItem = () => {
     fontSize: '20px',
     fontWeight: 'bold',
     weight: '60px',
-    width: '150px',
+    width: '190px',
     margin: '10px',
     lineHeight: '45px'
   }
-  
+
   return (
     <span style={myStyle}>
       <CodeSandboxOutlined style={{ fontSize: '30px' }} />
