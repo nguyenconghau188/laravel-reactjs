@@ -11,6 +11,7 @@
     </head>
     <body>
         <div id="root"></div>
+        <script type="text/javascript">window.GLOBALS={"user":{!! json_encode($user) !!}}</script>
         <script src="{{asset('backend/js/app.js')}}" ></script>
     </body>
 </html>

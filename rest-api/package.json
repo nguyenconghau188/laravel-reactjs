@@ -17,7 +17,7 @@
         "cross-env": "^7.0",
         "jquery": "^3.2",
         "laravel-mix": "^5.0.1",
-        "lodash": "^4.17.13",
+        "lodash": "^4.17.15",
         "popper.js": "^1.12",
         "react": "^16.2.0",
         "react-dom": "^16.2.0",
@@ -39,11 +39,20 @@
         "@material-ui/core": "^4.9.7",
         "@material-ui/icons": "^4.9.1",
         "antd": "^4.0.4",
+        "babel-polyfill": "^6.26.0",
         "classnames": "^2.2.6",
         "contentful": "^7.14.0",
+        "history": "^4.10.1",
+        "immutable": "^4.0.0-rc.12",
         "prop-types": "^15.7.2",
         "react-autobind": "^1.0.6",
         "react-redux": "^7.2.0",
-        "redux": "^4.0.5"
+        "react-redux-toastr": "^7.6.4",
+        "react-router-dom": "^5.1.2",
+        "recompose": "^0.30.0",
+        "redux": "^4.0.5",
+        "redux-actions": "^2.6.5",
+        "redux-immutable": "^4.0.0",
+        "redux-saga": "^1.1.3"
     }
 }
