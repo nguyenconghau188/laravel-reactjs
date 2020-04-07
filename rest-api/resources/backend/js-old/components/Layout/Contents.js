@@ -5,6 +5,8 @@ const { Content } = Layout;
 
 class Contents extends Component {
 
+  
+
   render() {
     return (
       <Layout style={{ padding: '0 24px 24px' }}>
