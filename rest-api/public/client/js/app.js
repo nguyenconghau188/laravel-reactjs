@@ -65710,7 +65710,7 @@ if (document.getElementById('example')) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Project\vuejs\laravel-reactjs\rest-api\resources\client\js\app.js */"./resources/client/js/app.js");
+module.exports = __webpack_require__(/*! D:\project\laravel-reactjs\rest-api\resources\client\js\app.js */"./resources/client/js/app.js");
 
 
 /***/ })
