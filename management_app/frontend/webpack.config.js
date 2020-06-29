@@ -3,26 +3,39 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     mode: 'development',
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.jsx'],
+        alias: {
+            'ejs': 'ejs.min.js'
+          }
     },
     module: {
         rules: [
             {
                 test: /\.jsx?$/,
                 loader: 'babel-loader'
-            }
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
+            {
+                test: /\.(jpg|png)$/,
+                use: {
+                  loader: 'url-loader',
+                },
+            },
         ]
     },
     plugins: [new HtmlWebpackPlugin({
         template: './src/index.html'
     })],
     devServer: {
-        historyApiFallback: true
+        historyApiFallback: true 
     },
     externals: {
-        // global app config object
+        // global app config object/
         config: JSON.stringify({
-            apiUrl: 'http://localhost:4000'
+            apiUrl: 'http://localhost:8000/api'
         })
     }
 }
