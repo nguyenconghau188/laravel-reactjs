@@ -1,4 +1,4 @@
-const styles = theme => ({
+const styles = () => ({
     statusname: {
         fontSize: 20,
         fontWeight: "bold",

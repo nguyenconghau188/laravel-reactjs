@@ -15,6 +15,11 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
+        $this->app->bind(
+            'App\Repositories\Contracts\TaskRepositoryInterface',
+            'App\Repositories\Eloquents\TaskRepository'
+            // 'App\Repositories\Redis\RedisTaskRepository'
+        );
     }
 
     /**
