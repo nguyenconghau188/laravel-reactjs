@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Task;
 use App\Repositories\Contracts\TaskRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class TaskController extends Controller
 {
@@ -25,7 +26,13 @@ class TaskController extends Controller
     {
         //
         $tasks = $this->taskRepository->all();
-        return $tasks;
+        if ($tasks) {
+            return response()->json([
+                'tasks' => $tasks
+            ], Response::HTTP_OK);
+        }
+
+        return response()->json(null, Response::HTTP_BAD_REQUEST);
     }
 
     /**

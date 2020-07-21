@@ -3,43 +3,15 @@ import { withStyles } from '@material-ui/styles';
 import { Button } from '@material-ui/core';
 import AddIcon from "@material-ui/icons/Add";
 import Grid from '@material-ui/core/Grid';
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
 import styles from './styles.js';
 import { STATUSES } from '../../constants';
 import TaskList from '../../components/TaskList';
+import TaskForm from '../../components/TaskForm';
+import * as taskActions from '../../actions/task';
 
-const listTask = [
-    {
-        id: '0',
-        name: 'Leaning ReactJS',
-        description: 'Very difficult',
-        status: 1
-    },
-    {
-        id: 1,
-        name: 'Leaning VueJS',
-        description: 'After learing Reactjs',
-        status: 0
-    },
-    {
-        id: 2,
-        name: 'Leaning Laravel',
-        description: 'I have some knowledge',
-        status: 2
-    },
-    {
-        id: 3,
-        name: 'Write a CV',
-        description: 'I am writing',
-        status: 1
-    },
-    {
-        id: '4',
-        name: 'Get a salary: 15m',
-        description: 'I will do it',
-        status: 1
-    },
-];
 const listAlert = [
     "info",
     "warning",
@@ -48,7 +20,33 @@ const listAlert = [
 
 class Taskboard extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            isOpen: false
+        };
+    }
+
+    componentDidMount() {
+        const { taskActionsCreator } = this.props;
+        const { fetchTaskRequest } = taskActionsCreator;
+        fetchTaskRequest();
+    }
+
+    handleOpenForm = () => {
+        this.setState({
+            isOpen: true
+        });
+    }
+
+    handleCloseForm = () => {
+        this.setState({
+            isOpen: false
+        });
+    }
+
     renderBoard() {
+        const { listTask } = this.props;
         let board = null;
         board = (
             <Grid container spacing={2}>
@@ -56,28 +54,63 @@ class Taskboard extends Component {
                     STATUSES.map((status, index) => {
                         const taskFilter = listTask.filter(task => task.status === status.value);
                         return (
-                            <TaskList tasks={taskFilter} status={status} listAlert={listAlert} key={index} />
+                            <TaskList
+                                tasks={taskFilter}
+                                status={status}
+                                listAlert={listAlert}
+                                handleOpenForm={this.handleOpenForm}
+                                key={index}
+                            />
                         );
                     })
                 }
             </Grid>
-        )
+        );
         return board;
+    }
+
+    handleSubmitForm = () => {
+
+    }
+
+    renderForm() {
+        let form = null;
+        const { isOpen } = this.state;
+        form = (
+            <TaskForm
+                isOpen={isOpen}
+                handleCloseForm={() => this.handleCloseForm()}
+                handleSubmitForm={() => this.handleSubmitForm()}
+            />
+        );
+        return form;
     }
 
     render() {
         const { classes } = this.props;
         return (
             <div className={classes.taskboard}>
-                <Button variant="contained" color="primary" >
+                <Button variant="contained" color="primary" onClick={() => this.handleOpenForm()} >
                     <AddIcon /> Add new
                 </Button>
                 <div className={classes.board}>
                     {this.renderBoard()}
+                    {this.renderForm()}
                 </div>
             </div>
         );
     }
 }
 
-export default withStyles(styles)(Taskboard);
+const mapStateToProps = (state) => {
+    return {
+        listTask: state.task.listTask,
+    };
+};
+const mapDispatchToProps = dispatch => {
+    return {
+        taskActionsCreator: bindActionCreators(taskActions, dispatch)
+    };
+};
+
+export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(Taskboard));

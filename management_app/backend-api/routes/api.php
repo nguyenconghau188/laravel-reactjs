@@ -21,4 +21,5 @@ Route::post('authentication/login', 'Api\AuthController@login');
 Route::group(['middleware' => 'jwt.auth'], function () {
     Route::get('auth', 'Api\AuthController@user');
 });
+Route::resource('tasks', 'Api\TaskController');
 Route::middleware('jwt.refresh')->get('/token/refresh', 'API\AuthController@refresh');

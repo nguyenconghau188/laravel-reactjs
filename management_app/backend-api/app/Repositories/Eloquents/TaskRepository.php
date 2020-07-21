@@ -8,7 +8,7 @@ use App\Models\Task;
 class TaskRepository implements TaskRepositoryInterface {
     
     public function all() {
-        return Task::all();
+        return Task::select('id', 'name', 'description', 'status', 'created_at')->get();
     }
 
     public function find($id) {
